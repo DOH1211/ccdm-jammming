@@ -1,0 +1,8 @@
+.tracklist {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+.tracklist li {
+  margin-bottom: 2em;
+}
