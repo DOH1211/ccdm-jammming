@@ -11,7 +11,7 @@ const DATA = [
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-  // const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlist, setPlaylist] = useState([]);
 
   const search = (term) => {
@@ -34,6 +34,14 @@ function App() {
     });
   };
 
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name);
+  };
+
+  const savePlaylistName = () => {
+    console.log(playlistName);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -42,7 +50,13 @@ function App() {
       <SearchBar search={search} />
       <div className="list-wrapper">
         <SearchResults list={searchResults} onAdd={addTrack} />
-        <Playlist list={playlist} onRemove={removeTrack} />
+        <Playlist
+          list={playlist}
+          onRemove={removeTrack}
+          playlistName={playlistName}
+          onChangeName={updatePlaylistName}
+          onSaveName={savePlaylistName}
+        />
       </div>
     </div>
   );

@@ -5,4 +5,7 @@
 }
 .tracklist li {
   margin-bottom: 2em;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 0 1em;
 }

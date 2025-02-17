@@ -1,3 +1,5 @@
+import styles from "./Track.module.css";
+
 function Track({ track, onAdd, onRemove, isRemoval }) {
   const addTrack = () => {
     console.log("ADD");
@@ -15,11 +17,13 @@ function Track({ track, onAdd, onRemove, isRemoval }) {
     }
   };
   return (
-    <li>
-      <p>{track.title}</p>
-      <p>
-        {track.artistName} | {track.album}{" "}
-      </p>
+    <li className={styles.track}>
+      <div>
+        <p>{track.title}</p>
+        <p>
+          {track.artistName} | {track.album}{" "}
+        </p>
+      </div>
       {renderBtn()}
     </li>
   );
