@@ -1,15 +1,21 @@
+import { useState } from "react";
 import Tracklist from "./Tracklist";
 
-function Playlist({ list, onRemove, playlistName, onChangeName, onSaveName }) {
+function Playlist({ list, onRemove, playlistName, onSaveName }) {
+  const [playListNameInput, setPlayListNameInput] = useState("");
   const handleChange = ({ target }) => {
-    onChangeName(target.value);
+    setPlayListNameInput(target.value);
+  };
+  const handleClick = () => {
+    onSaveName(playListNameInput);
+    setPlayListNameInput("");
   };
   return (
     <div>
       <div>
         <h2>{playlistName}</h2>
-        <input type="text" value={playlistName} onChange={handleChange} />
-        <button onClick={onSaveName}>Save Playlist Name</button>
+        <input type="text" value={playListNameInput} onChange={handleChange} />
+        <button onClick={handleClick}>Save Playlist Name</button>
         <Tracklist list={list} isRemoval={true} onRemove={onRemove} />
       </div>
     </div>

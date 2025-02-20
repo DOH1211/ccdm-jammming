@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import SearchResults from "./Components/SearchResults";
 import Playlist from "./Components/Playlist";
@@ -34,13 +34,14 @@ function App() {
     });
   };
 
-  const updatePlaylistName = (name) => {
+  const savePlaylistName = (name) => {
     setPlaylistName(name);
   };
 
-  const savePlaylistName = () => {
+  useEffect(() => {
     console.log(playlistName);
-  };
+    console.log(playlist);
+  }, [playlistName]);
 
   return (
     <div className="App">
@@ -54,7 +55,6 @@ function App() {
           list={playlist}
           onRemove={removeTrack}
           playlistName={playlistName}
-          onChangeName={updatePlaylistName}
           onSaveName={savePlaylistName}
         />
       </div>
