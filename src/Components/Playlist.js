@@ -7,8 +7,10 @@ function Playlist({ list, onRemove, playlistName, onSaveName }) {
     setPlayListNameInput(target.value);
   };
   const handleClick = () => {
-    onSaveName(playListNameInput);
-    setPlayListNameInput("");
+    if (playListNameInput) {
+      onSaveName(playListNameInput);
+      setPlayListNameInput("");
+    }
   };
   return (
     <div>

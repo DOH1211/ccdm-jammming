@@ -19,9 +19,9 @@ function Track({ track, onAdd, onRemove, isRemoval }) {
   return (
     <li className={styles.track}>
       <div>
-        <p>{track.title}</p>
+        <h3>{track.name}</h3>
         <p>
-          {track.artistName} | {track.album}{" "}
+          {track.artists[0].name} | {track.album.name}
         </p>
       </div>
       {renderBtn()}
