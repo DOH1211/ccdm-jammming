@@ -3,6 +3,7 @@ import SearchBar from "./Components/SearchBar";
 import SearchResults from "./Components/SearchResults";
 import Playlist from "./Components/Playlist";
 import "./App.css";
+import Spotify from "./Spotify";
 
 const DATA = {
   href: "https://api.spotify.com/v1/search?offset=0&limit=3&query=bts&type=track&market=us&locale=en-US,en;q%3D0.9",
