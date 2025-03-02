@@ -3,7 +3,8 @@ import SearchBar from "./Components/SearchBar";
 import SearchResults from "./Components/SearchResults";
 import Playlist from "./Components/Playlist";
 import "./App.css";
-import Spotify from "./Spotify";
+
+import Login from "./Spotify/Login.js";
 
 const DATA = {
   href: "https://api.spotify.com/v1/search?offset=0&limit=3&query=bts&type=track&market=us&locale=en-US,en;q%3D0.9",
@@ -301,6 +302,11 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlist, setPlaylist] = useState([]);
+  const [token, setToken] = useState(null);
+
+  const handleToken = (token) => {
+    setToken(token);
+  };
 
   const search = (term) => {
     console.log("search click", term);
@@ -342,16 +348,24 @@ function App() {
       <header className="App-header">
         <h1>Jammming</h1>
       </header>
-      <SearchBar search={search} />
-      <div className="list-wrapper">
-        <SearchResults list={searchResults} onAdd={addTrack} />
-        <Playlist
-          list={playlist}
-          onRemove={removeTrack}
-          playlistName={playlistName}
-          onSaveName={savePlaylistName}
-        />
-      </div>
+      {!token ? (
+        <div className="m2">
+          <Login onToken={handleToken} />
+        </div>
+      ) : (
+        <div>
+          <SearchBar search={search} />
+          <div className="list-wrapper">
+            <SearchResults list={searchResults} onAdd={addTrack} />
+            <Playlist
+              list={playlist}
+              onRemove={removeTrack}
+              playlistName={playlistName}
+              onSaveName={savePlaylistName}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
