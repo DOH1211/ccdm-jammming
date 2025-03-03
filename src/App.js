@@ -5,6 +5,7 @@ import Playlist from "./Components/Playlist";
 import "./App.css";
 
 import Login from "./Spotify/Login.js";
+import { searchShopify, savePlaylist } from "./Spotify/utils.js";
 
 const DATA = {
   href: "https://api.spotify.com/v1/search?offset=0&limit=3&query=bts&type=track&market=us&locale=en-US,en;q%3D0.9",
@@ -308,9 +309,11 @@ function App() {
     setToken(token);
   };
 
-  const search = (term) => {
+  const search = async (term) => {
     console.log("search click", term);
-    setSearchResults(DATA.items);
+    const searchData = await searchShopify(term, token);
+    // console.log(searchData);
+    setSearchResults(searchData);
   };
   const addTrack = (track) => {
     if (playlist.some((savedSong) => savedSong.id === track.id)) return;
@@ -332,6 +335,7 @@ function App() {
     setPlaylistName(name);
     const playlistTrackUris = playlist.map((track) => track.uri);
     console.log(playlistTrackUris);
+    savePlaylist(name, token, playlistTrackUris);
     setPlaylistName("New Playlist");
     setPlaylist([]);
   };
@@ -360,7 +364,6 @@ function App() {
             <Playlist
               list={playlist}
               onRemove={removeTrack}
-              playlistName={playlistName}
               onSaveName={savePlaylistName}
             />
           </div>

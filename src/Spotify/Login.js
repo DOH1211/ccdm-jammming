@@ -25,7 +25,7 @@ const Login = ({ onToken }) => {
       redirect_uri: redirectUri,
       code_challenge_method: "S256",
       code_challenge: codeChallenge,
-      scope: "user-read-private user-read-email",
+      scope: "user-read-private user-read-email playlist-modify-public",
     });
 
     window.location = `${authUrl}?${params.toString()}`;
