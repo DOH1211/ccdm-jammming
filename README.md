@@ -4,6 +4,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+You need to make your onw credential.js and use your own client ID for your Spotify project.
+export const MyClientID = "your own client ID";
+
 ## Available Scripts
 
 In the project directory, you can run:
