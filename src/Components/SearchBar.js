@@ -2,6 +2,8 @@ import { useState } from "react";
 import styles from "./SearchBar.module.css";
 import Button from "../UI/Button";
 
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 function SearchBar({ search }) {
   const [term, setTerm] = useState("");
 
@@ -23,6 +25,7 @@ function SearchBar({ search }) {
       <Button
         className="btn btn-small"
         onClick={handleClick}
+        faIcon={faMagnifyingGlass}
         btnText="Search"
       />
     </div>
