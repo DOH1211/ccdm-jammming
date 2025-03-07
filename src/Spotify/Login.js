@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 import queryString from "query-string";
 import { generateCodeVerifier, generateCodeChallenge } from "./pkce.js";
 
 import { MyClientID } from "./credential.js";
+import Button from "../UI/Button.js";
 
 const clientId = MyClientID;
 const redirectUri = "http://localhost:3000/callback";
@@ -70,15 +72,12 @@ const Login = ({ onToken }) => {
   };
 
   return (
-    // <div>
-    //   {token ? (
-    //     <p>Authenticated! Access Token: {token}</p>
-    //   ) : (
-    //     <button onClick={loginWithSpotify}>Login with Spotify</button>
-    //   )}
-    // </div>
-    <div>
-      <button onClick={loginWithSpotify}>Login with Spotify</button>
+    <div className="pt5">
+      <Button
+        className="btn btn-large"
+        onClick={loginWithSpotify}
+        btnText="Login with Spotyfy"
+      />
     </div>
   );
 };

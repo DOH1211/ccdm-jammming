@@ -1,24 +1,58 @@
 .App {
+  font-size: 16px;
+  margin: 5rem auto;
+  max-width: 1280px;
   text-align: center;
+  font-family: Helvetica, sans-serif;
+  color: #7e7e7e;
 }
-
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App-header h1 {
+  font-size: 4rem;
+  font-weight: 100;
 }
-
 .list-wrapper {
   display: flex;
-  max-width: 1440px;
-  justify-content: space-around;
-  margin: 0 auto;
+  gap: 2em;
+  justify-content: center;
+}
+.list-wrapper div {
+  flex: 1 1 400px;
 }
 
-.m2 {
-  margin: 2em;
+.btn {
+  color: white;
+  background-color: #7e7e7e;
+  border-radius: 8px;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 200ms ease-out;
+  font-weight: 600;
+}
+.btn:hover {
+  background-color: #1ed760;
+}
+.btn-large {
+  padding: 1rem 5rem;
+  font-size: 1.5rem;
+  line-height: 1.333rem;
+}
+.btn-small {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+input::placeholder {
+  opacity: 0.5;
+}
+
+.mr1nh {
+  margin-right: 1.5rem;
+}
+.mb5 {
+  margin-bottom: 5rem;
+}
+.pt5 {
+  padding-top: 5rem;
 }

@@ -349,13 +349,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header mb5">
         <h1>Jammming</h1>
       </header>
       {!token ? (
-        <div className="m2">
-          <Login onToken={handleToken} />
-        </div>
+        <Login onToken={handleToken} />
       ) : (
         <div>
           <SearchBar search={search} />
