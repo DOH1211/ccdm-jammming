@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Tracklist from "./Tracklist";
 import styles from "./Playlist.module.css";
+import Button from "../UI/Button";
 
 function Playlist({ list, onRemove, onSaveName }) {
   const [playListNameInput, setPlayListNameInput] = useState("");
@@ -14,15 +15,20 @@ function Playlist({ list, onRemove, onSaveName }) {
     }
   };
   return (
-    <div>
+    <div className="list-wrapper">
       <input
-        className={styles.playlistTitle}
+        className={`${styles.inputTitle} sub-title`}
         type="text"
         placeholder="New Playlist"
         value={playListNameInput}
         onChange={handleChange}
       />
-      <button onClick={handleClick}>Save Playlist Name</button>
+      <Button
+        className="btn btn-small"
+        onClick={handleClick}
+        btnText="Save Playlist Name"
+      />
+
       <Tracklist list={list} isRemoval={true} onRemove={onRemove} />
     </div>
   );

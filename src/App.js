@@ -357,7 +357,7 @@ function App() {
       ) : (
         <div>
           <SearchBar search={search} />
-          <div className="list-wrapper">
+          <div className="wrapper">
             <SearchResults list={searchResults} onAdd={addTrack} />
             <Playlist
               list={playlist}

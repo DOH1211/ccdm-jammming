@@ -1,14 +1,4 @@
-.inputField {
+.inputSearch {
   font-size: 1.25rem;
   line-height: 1.5rem;
-  padding: 0.5rem 1.5rem;
-  min-width: 20rem;
-  border: none;
-  border-bottom: 1px solid #bdbdbd;
-}
-
-@media screen and (max-width: 560px) {
-  .inputField {
-    min-width: 15rem;
-  }
 }

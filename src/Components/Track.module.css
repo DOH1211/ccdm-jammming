@@ -3,4 +3,19 @@
   justify-content: space-between;
   align-items: center;
   gap: 2em;
+  background-color: #f7f6f2;
+  margin-bottom: 1.5em;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+}
+.track h3 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.track p {
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 1.333;
 }

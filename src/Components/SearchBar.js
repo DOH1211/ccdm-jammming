@@ -16,7 +16,7 @@ function SearchBar({ search }) {
   return (
     <div className="mb5">
       <input
-        className={`${styles.inputField} mr1nh`}
+        className={`${styles.inputSearch} mr1nh`}
         type="text"
         value={term}
         onChange={handleChange}

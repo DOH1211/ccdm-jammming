@@ -1,4 +1,6 @@
 import styles from "./Track.module.css";
+import Button from "../UI/Button";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 function Track({ track, onAdd, onRemove, isRemoval }) {
   const addTrack = () => {
@@ -11,9 +13,23 @@ function Track({ track, onAdd, onRemove, isRemoval }) {
 
   const renderBtn = () => {
     if (isRemoval) {
-      return <button onClick={removeTrack}>-</button>;
+      return (
+        <Button
+          className="btn btn-mini"
+          onClick={removeTrack}
+          faIcon={faMinus}
+          miniBtn={true}
+        />
+      );
     } else {
-      return <button onClick={addTrack}>+</button>;
+      return (
+        <Button
+          className="btn btn-mini"
+          onClick={addTrack}
+          faIcon={faPlus}
+          miniBtn={true}
+        />
+      );
     }
   };
   return (

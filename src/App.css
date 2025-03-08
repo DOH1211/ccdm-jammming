@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 html {
   font-size: 16px;
 }
@@ -5,27 +9,66 @@ html {
 .App {
   font-size: 16px;
   margin: 5rem auto;
+  padding: 0 2rem;
   max-width: 1280px;
   text-align: center;
   font-family: Helvetica, sans-serif;
   color: #7e7e7e;
 }
-@media screen and (max-width: 560px) {
+
+ul {
+  margin: 0;
+  margin-top: 3rem;
+}
+
+input {
+  padding: 0.5rem 1.5rem;
+  min-width: 20rem;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+@media screen and (max-width: 570px) {
   html {
     font-size: 14px;
+  }
+  input {
+    min-width: 15rem;
   }
 }
 .App-header h1 {
   font-size: 4rem;
   font-weight: 100;
 }
-.list-wrapper {
+.sub-title {
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+.wrapper {
   display: flex;
   gap: 2em;
   justify-content: center;
+  align-items: flex-start;
 }
-.list-wrapper div {
+
+.list-wrapper {
   flex: 1 1 400px;
+  background-color: #f4f2eb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 2rem 1.5rem;
+}
+@media screen and (max-width: 960px) {
+  .wrapper {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .list-wrapper {
+    flex: 1 1 100px;
+  }
 }
 
 .btn {
@@ -41,6 +84,9 @@ html {
 .btn:hover {
   background-color: #1ed760;
 }
+.btn:active {
+  background-color: #1c9122;
+}
 .btn-large {
   padding: 1rem 3rem;
   font-size: 1.5rem;
@@ -50,6 +96,11 @@ html {
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.btn-mini {
+  padding: 0.5rem 0.6rem;
+  font-size: 1rem;
+  line-height: 1;
 }
 
 input::placeholder {
