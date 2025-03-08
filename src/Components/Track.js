@@ -34,11 +34,21 @@ function Track({ track, onAdd, onRemove, isRemoval }) {
   };
   return (
     <li className={styles.track}>
-      <div>
-        <h3>{track.name}</h3>
-        <p>
-          {track.artists[0].name} | {track.album.name}
-        </p>
+      <div className={styles.trackTitleGroup}>
+        <div className={styles.trackThumb}>
+          <img
+            src={track.album.images[2].url}
+            alt={track.name}
+            width={track.album.images[2].width}
+            height={track.album.images[2].height}
+          />
+        </div>
+        <div className={styles.trackTitle}>
+          <h3>{track.name}</h3>
+          <p>
+            {track.artists[0].name} | {track.album.name}
+          </p>
+        </div>
       </div>
       {renderBtn()}
     </li>

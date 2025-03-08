@@ -2,12 +2,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2em;
+  gap: 2rem;
   background-color: #f7f6f2;
   margin-bottom: 1.5em;
   border: 1px solid lightgray;
   border-radius: 8px;
   padding: 1rem 1.5rem;
+}
+.trackTitleGroup {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+.trackThumb {
+  width: 12%;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.trackTitle {
+  flex: 1;
+}
+.trackThumb img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .track h3 {
   font-size: 1.25rem;
