@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import axios from "axios";
 import queryString from "query-string";
@@ -45,7 +45,7 @@ const Login = ({ onToken }) => {
       const updatedUrl = url.search ? url.href : url.href.replace("?", "");
       window.history.replaceState({}, document.title, updatedUrl);
     }
-  }, []);
+  }, [exchangeToken]);
 
   const exchangeToken = async (code) => {
     const codeVerifier = localStorage.getItem("code_verifier");
