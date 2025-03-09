@@ -8,7 +8,7 @@ import { generateCodeVerifier, generateCodeChallenge } from "./pkce.js";
 import Button from "../UI/Button.js";
 
 const clientId = process.env.REACT_APP_CLIENTID;
-const redirectUri = "http://localhost:3000/callback";
+const redirectUri = "https://ccdm-jamming.netlify.app/callback";
 const authUrl = "https://accounts.spotify.com/authorize";
 const tokenUrl = "https://accounts.spotify.com/api/token";
 
