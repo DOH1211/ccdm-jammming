@@ -4,7 +4,7 @@ import axios from "axios";
 import queryString from "query-string";
 import { generateCodeVerifier, generateCodeChallenge } from "./pkce.js";
 
-// import { MyClientID } from "./credential.js";
+import { MyClientID } from "./credential.js";
 import Button from "../UI/Button.js";
 
 const clientId = process.env.REACT_APP_My_Client_ID;
