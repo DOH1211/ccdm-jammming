@@ -4,10 +4,10 @@ import axios from "axios";
 import queryString from "query-string";
 import { generateCodeVerifier, generateCodeChallenge } from "./pkce.js";
 
-import { MyClientID } from "./credential.js";
+// import { MyClientID } from "./credential.js";
 import Button from "../UI/Button.js";
 
-const clientId = MyClientID || process.env.REACT_APP_My_Client_ID;
+const clientId = process.env.REACT_APP_My_Client_ID;
 const redirectUri = "http://localhost:3000/callback";
 const authUrl = "https://accounts.spotify.com/authorize";
 const tokenUrl = "https://accounts.spotify.com/api/token";
