@@ -10,10 +10,7 @@ export const generateCodeChallenge = async (codeVerifier) => {
   const encoder = new TextEncoder();
   const data = encoder.encode(codeVerifier);
   const hashBuffer = await window.crypto.subtle.digest("SHA-256", data);
-  // const base64Url = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
-  //   .replace(/\+/g, "-")
-  //   .replace(/\//g, "_")
-  //   .replace(/=+$/, "");
+
   const base64Url = btoa(String.fromCharCode(...new Uint8Array(hashBuffer)))
     .replace("+", "-")
     .replace("/", "_")
