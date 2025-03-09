@@ -33,29 +33,32 @@ const Login = ({ onToken }) => {
     window.location = `${authUrl}?${params.toString()}`;
   };
 
-  const exchangeToken = useCallback(async (code) => {
-    const codeVerifier = localStorage.getItem("code_verifier");
+  const exchangeToken = useCallback(
+    async (code) => {
+      const codeVerifier = localStorage.getItem("code_verifier");
 
-    const params = new URLSearchParams({
-      client_id: clientId,
-      grant_type: "authorization_code",
-      code,
-      redirect_uri: redirectUri,
-      code_verifier: codeVerifier,
-    });
-
-    try {
-      const response = await axios.post(tokenUrl, params, {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      const params = new URLSearchParams({
+        client_id: clientId,
+        grant_type: "authorization_code",
+        code,
+        redirect_uri: redirectUri,
+        code_verifier: codeVerifier,
       });
-      // setToken(response.data.access_token);
 
-      onToken(response.data.access_token);
-      localStorage.setItem("access_token", response.data.access_token);
-    } catch (error) {
-      console.error("Error exchanging code for token", error);
-    }
-  }, []);
+      try {
+        const response = await axios.post(tokenUrl, params, {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        });
+        // setToken(response.data.access_token);
+
+        onToken(response.data.access_token);
+        localStorage.setItem("access_token", response.data.access_token);
+      } catch (error) {
+        console.error("Error exchanging code for token", error);
+      }
+    },
+    [onToken]
+  );
 
   useEffect(() => {
     const { code } = queryString.parse(window.location.search);
