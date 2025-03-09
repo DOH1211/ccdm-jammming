@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchBar from "./Components/SearchBar";
 import SearchResults from "./Components/SearchResults";
 import Playlist from "./Components/Playlist";
@@ -301,7 +301,7 @@ import { searchShopify, savePlaylist } from "./Spotify/utils.js";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+  // const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlist, setPlaylist] = useState([]);
   const [token, setToken] = useState(null);
 
@@ -332,11 +332,11 @@ function App() {
   };
 
   const savePlaylistName = (name) => {
-    setPlaylistName(name);
+    // setPlaylistName(name);
     const playlistTrackUris = playlist.map((track) => track.uri);
     console.log(playlistTrackUris);
     savePlaylist(name, token, playlistTrackUris);
-    setPlaylistName("New Playlist");
+    // setPlaylistName("New Playlist");
     setPlaylist([]);
   };
 

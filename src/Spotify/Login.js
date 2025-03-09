@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 
 import axios from "axios";
 import queryString from "query-string";
@@ -33,21 +33,7 @@ const Login = ({ onToken }) => {
     window.location = `${authUrl}?${params.toString()}`;
   };
 
-  useEffect(() => {
-    const { code } = queryString.parse(window.location.search);
-    if (code) {
-      exchangeToken(code);
-
-      // Remove Code from URL to prevent the second exchangeToken call with the same code.
-      const url = new URL(window.location.href);
-      url.searchParams.delete("code");
-
-      const updatedUrl = url.search ? url.href : url.href.replace("?", "");
-      window.history.replaceState({}, document.title, updatedUrl);
-    }
-  }, [exchangeToken]);
-
-  const exchangeToken = async (code) => {
+  const exchangeToken = useCallback(async (code) => {
     const codeVerifier = localStorage.getItem("code_verifier");
 
     const params = new URLSearchParams({
@@ -69,7 +55,21 @@ const Login = ({ onToken }) => {
     } catch (error) {
       console.error("Error exchanging code for token", error);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    const { code } = queryString.parse(window.location.search);
+    if (code) {
+      exchangeToken(code);
+
+      // Remove Code from URL to prevent the second exchangeToken call with the same code.
+      const url = new URL(window.location.href);
+      url.searchParams.delete("code");
+
+      const updatedUrl = url.search ? url.href : url.href.replace("?", "");
+      window.history.replaceState({}, document.title, updatedUrl);
+    }
+  }, [exchangeToken]);
 
   return (
     <div className="pt5">
